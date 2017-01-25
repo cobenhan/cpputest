@@ -67,6 +67,11 @@ configure_file (
 include_directories(${PROJECT_BINARY_DIR})
 add_definitions(-DHAVE_CONFIG_H)
 
+add_definitions(-DCPPUTEST_MEM_LEAK_DETECTION_DISABLED)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+
+
 include_directories(${CppUTestRootDirectory}/include)
 add_subdirectory(src/CppUTest)
 
