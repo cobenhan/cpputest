@@ -43,4 +43,13 @@
 #include "TestFailure.h"
 #include "TestPlugin.h"
 #include "MemoryLeakWarningPlugin.h"
+
+#define CPPUTEST_WRAPPER(chk)	\
+	try {	\
+		chk;	\
+	} catch(...) {	\
+		fprintf(stderr, "\033[31mCPPUTEST: %s:%d exception\033[39m\n", __FUNCTION__, __LINE__);	\
+	}
+
+
 #endif
